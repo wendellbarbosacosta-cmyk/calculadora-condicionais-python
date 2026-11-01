@@ -218,7 +218,7 @@ export const PythonSimulator: React.FC = () => {
     });
     steps.push({
       stepNumber: 8,
-      line: `print("Operação inválida! Escolha entre 1 e 4.")`,
+      line: `print("Operação inválida! Escolha entre 1 e 5.")`,
       explanation: `O usuário recebe um aviso informando que a opção "${op}" não existe.`,
       status: 'error'
     });
@@ -268,7 +268,7 @@ export const PythonSimulator: React.FC = () => {
       setTermOp(val);
       setTerminalLogs(prev => [
         ...prev.slice(0, prev.length - 1),
-        `Escolha a operação (1, 2, 3 ou 4): ${val}`,
+        `Escolha a operação (1, 2, 3, 4 ou 5): ${val}`,
         'Digite o primeiro número: '
       ]);
       setTerminalStage('num1');
@@ -396,6 +396,14 @@ export const PythonSimulator: React.FC = () => {
                 Cenários Didáticos Pré-configurados:
               </label>
               <div className="grid grid-cols-2 gap-2 text-xs">
+                <button
+                  type="button"
+                  onClick={() => applyPreset('200', '15', '5')}
+                  className="p-2 bg-emerald-950/30 hover:bg-emerald-950/50 border border-emerald-900/50 rounded-lg text-left text-emerald-300 transition-colors col-span-2"
+                >
+                  <span className="font-semibold block text-emerald-400">Porcentagem (%)</span>
+                  <span className="text-[11px] text-emerald-300/70">15% de 200 = 30.0</span>
+                </button>
                 <button
                   type="button"
                   onClick={() => applyPreset('15', '7', '1')}

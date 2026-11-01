@@ -5,7 +5,7 @@
 ![Status](https://img.shields.io/badge/status-concluído-brightgreen.svg)
 ![Nível](https://img.shields.io/badge/nível-iniciante-orange.svg)
 
-Uma calculadora simples desenvolvida em **Python 3** que realiza as quatro operações matemáticas fundamentais (soma, subtração, multiplicação e divisão), utilizando **estruturas de controle condicionais** (`if`, `elif` e `else`) para guiar a tomada de decisões com base na escolha do usuário.
+Uma calculadora simples desenvolvida em **Python 3** que realiza as operações matemáticas fundamentais (soma, subtração, multiplicação, divisão e porcentagem), utilizando **estruturas de controle condicionais** (`if`, `elif` e `else`) para guiar a tomada de decisões com base na escolha do usuário.
 
 Projeto criado como parte dos meus primeiros passos nos estudos de lógica de programação e sintaxe de Python.
 

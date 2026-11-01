@@ -18,7 +18,7 @@ export interface PythonCodeVersion {
 
 export const BASIC_CALCULATOR_CODE = `# ============================================
 # CALCULADORA BÁSICA EM PYTHON
-# Operações: Soma, Subtração, Multiplicação e Divisão
+# Operações: Soma, Subtração, Multiplicação, Divisão e Porcentagem
 # ============================================
 
 # 1. Apresentação do menu ao usuário
@@ -27,13 +27,14 @@ print("1 - Soma (+)")
 print("2 - Subtração (-)")
 print("3 - Multiplicação (*)")
 print("4 - Divisão (/)")
+print("5 - Porcentagem (%)")
 
 # 2. Leitura da operação escolhida
-operacao = input("Escolha a operação (1, 2, 3 ou 4): ")
+operacao = input("Escolha a operação (1, 2, 3, 4 ou 5): ")
 
 # 3. Leitura dos dois números
 num1 = float(input("Digite o primeiro número: "))
-num2 = float(input("Digite o segundo número: "))
+num2 = float(input("Digite o segundo número (ou taxa %): "))
 
 # 4. Estrutura condicional para calcular o resultado
 if operacao == "1" or operacao == "+":
@@ -56,8 +57,12 @@ elif operacao == "4" or operacao == "/":
         resultado = num1 / num2
         print(f"\\nResultado: {num1} / {num2} = {resultado}")
 
+elif operacao == "5" or operacao == "%":
+    resultado = (num1 * num2) / 100
+    print(f"\\nResultado: {num2}% de {num1} = {resultado}")
+
 else:
-    print("\\nOperação inválida! Por favor, escolha uma opção entre 1 e 4.")
+    print("\\nOperação inválida! Por favor, escolha uma opção entre 1 e 5.")
 `;
 
 export const FUNCTIONS_CALCULATOR_CODE = `# ============================================
@@ -79,11 +84,14 @@ def dividir(a, b):
         return "Erro: Divisão por zero não é permitida!"
     return a / b
 
+def calcular_porcentagem(valor, taxa):
+    return (valor * taxa) / 100
+
 # Entrada de dados
-print("Escolha: 1-Soma, 2-Subtração, 3-Multiplicação, 4-Divisão")
+print("Escolha: 1-Soma, 2-Subtração, 3-Multiplicação, 4-Divisão, 5-Porcentagem")
 opcao = input("Opção desejada: ")
 n1 = float(input("Primeiro valor: "))
-n2 = float(input("Segundo valor: "))
+n2 = float(input("Segundo valor (ou taxa %): "))
 
 # Condicionais chamando as funções
 if opcao == "1":
@@ -94,6 +102,8 @@ elif opcao == "3":
     print(f"Resultado: {multiplicar(n1, n2)}")
 elif opcao == "4":
     print(f"Resultado: {dividir(n1, n2)}")
+elif opcao == "5":
+    print(f"Resultado: {calcular_porcentagem(n1, n2)}")
 else:
     print("Opção inválida.")
 `;
@@ -105,14 +115,14 @@ export const LOOP_CALCULATOR_CODE = `# =========================================
 
 while True:
     print("\\n--- CALCULADORA EM LOOP ---")
-    print("Opções: [+] [-] [*] [/] ou [sair]")
+    print("Opções: [+] [-] [*] [/] [%] ou [sair]")
     op = input("Operação: ").strip().lower()
 
     if op == "sair":
         print("Encerrando a calculadora. Até logo!")
         break
 
-    if op not in ["+", "-", "*", "/", "1", "2", "3", "4"]:
+    if op not in ["+", "-", "*", "/", "%", "1", "2", "3", "4", "5"]:
         print("Opção inválida! Tente novamente.")
         continue
 
@@ -130,6 +140,8 @@ while True:
             print("Erro: Impossível dividir por zero!")
         else:
             print(f"Resultado: {n1 / n2}")
+    elif op in ["%", "5"]:
+        print(f"Resultado: {n2}% de {n1} = {(n1 * n2) / 100}")
 `;
 
 export const BASIC_LINE_EXPLANATIONS: CodeLineExplanation[] = [
@@ -150,15 +162,15 @@ export const BASIC_LINE_EXPLANATIONS: CodeLineExplanation[] = [
     beginnerTip: "Sem o print(), o computador calcula tudo em silêncio e o usuário não vê nada acontecer."
   },
   {
-    line: 14,
-    code: 'operacao = input("Escolha a operação (1, 2, 3 ou 4): ")',
+    line: 15,
+    code: 'operacao = input("Escolha a operação (1, 2, 3, 4 ou 5): ")',
     category: "input",
     title: "A função input() e Variáveis",
     explanation: "A função input() pausa o programa e espera o usuário digitar algo e pressionar Enter. O texto digitado é guardado na variável 'operacao'.",
     beginnerTip: "Importante: o input() SEMPRE devolve um texto (tipo str / string), mesmo que o usuário digite apenas números!"
   },
   {
-    line: 17,
+    line: 18,
     code: 'num1 = float(input("Digite o primeiro número: "))',
     category: "input",
     title: "Conversão de tipo com float()",
@@ -166,7 +178,7 @@ export const BASIC_LINE_EXPLANATIONS: CodeLineExplanation[] = [
     beginnerTip: "Se você usasse int(), o usuário só poderia digitar números inteiros. Com float(), aceita inteiros e decimais!"
   },
   {
-    line: 21,
+    line: 22,
     code: 'if operacao == "1" or operacao == "+":',
     category: "condition",
     title: "Estrutura Condicional: if (Se)",
@@ -174,7 +186,7 @@ export const BASIC_LINE_EXPLANATIONS: CodeLineExplanation[] = [
     beginnerTip: "Atenção: um único sinal '=' serve para ATRIBUIR valor a uma variável. Dois sinais '==' servem para COMPARAR se duas coisas são iguais!"
   },
   {
-    line: 22,
+    line: 23,
     code: "    resultado = num1 + num2",
     category: "operation",
     title: "Indentação e Operação de Soma (+)",
@@ -182,7 +194,7 @@ export const BASIC_LINE_EXPLANATIONS: CodeLineExplanation[] = [
     beginnerTip: "Em outras linguagens usam chaves { }, mas o Python usa espaços! Se esquecer de identar, dará 'IndentationError'."
   },
   {
-    line: 23,
+    line: 24,
     code: '    print(f"\\nResultado: {num1} + {num2} = {resultado}")',
     category: "output",
     title: "F-Strings (Formatação de Texto)",
@@ -190,7 +202,7 @@ export const BASIC_LINE_EXPLANATIONS: CodeLineExplanation[] = [
     beginnerTip: "O '\\n' dentro do texto cria uma quebra de linha (pula uma linha), deixando a visualização no terminal mais agradável."
   },
   {
-    line: 25,
+    line: 26,
     code: 'elif operacao == "2" or operacao == "-":',
     category: "condition",
     title: "O que é o elif (Senão Se)?",
@@ -198,7 +210,7 @@ export const BASIC_LINE_EXPLANATIONS: CodeLineExplanation[] = [
     beginnerTip: "Você pode ter quantos 'elif' precisar para encadear várias opções!"
   },
   {
-    line: 29,
+    line: 30,
     code: 'elif operacao == "3" or operacao == "*":',
     category: "condition",
     title: "Multiplicação com asterisco (*)",
@@ -206,7 +218,7 @@ export const BASIC_LINE_EXPLANATIONS: CodeLineExplanation[] = [
     beginnerTip: "Não use a letra 'x' para multiplicar no código, sempre use '*'!"
   },
   {
-    line: 33,
+    line: 34,
     code: 'elif operacao == "4" or operacao == "/":',
     category: "condition",
     title: "Divisão com barra (/)",
@@ -214,7 +226,7 @@ export const BASIC_LINE_EXPLANATIONS: CodeLineExplanation[] = [
     beginnerTip: "Em Python 3, a divisão comum (/) sempre devolve um número float, por exemplo 10 / 2 resulta em 5.0."
   },
   {
-    line: 35,
+    line: 36,
     code: "    if num2 == 0:",
     category: "condition",
     title: "Condicional Aninhada: Prevenção de Divisão por Zero",
@@ -222,7 +234,7 @@ export const BASIC_LINE_EXPLANATIONS: CodeLineExplanation[] = [
     beginnerTip: "Sempre valide os dados que o usuário digita para evitar que seu programa quebre de surpresa."
   },
   {
-    line: 36,
+    line: 37,
     code: '        print("\\nErro: Não é possível realizar divisão por zero!")',
     category: "output",
     title: "Mensagem de Erro Amigável",
@@ -230,7 +242,7 @@ export const BASIC_LINE_EXPLANATIONS: CodeLineExplanation[] = [
     beginnerTip: "Bons programadores pensam sempre na experiência de quem está usando o software."
   },
   {
-    line: 37,
+    line: 38,
     code: "    else:",
     category: "condition",
     title: "O else da Divisão (Caso o divisor seja válido)",
@@ -238,11 +250,19 @@ export const BASIC_LINE_EXPLANATIONS: CodeLineExplanation[] = [
     beginnerTip: "Note a indentação dupla (8 espaços) para mostrar que este else pertence ao if interno de divisão por zero."
   },
   {
-    line: 41,
+    line: 42,
+    code: 'elif operacao == "5" or operacao == "%":',
+    category: "condition",
+    title: "Cálculo de Porcentagem (%)",
+    explanation: "Verifica se a opção escolhida foi porcentagem (digitando '5' ou '%'). Calculamos quanto é a taxa (num2)% em relação ao valor base (num1) através da fórmula (num1 * num2) / 100.",
+    beginnerTip: "Para calcular 15% de 200, multiplicamos o valor pela taxa e dividimos por 100: (200 * 15) / 100 = 30.0."
+  },
+  {
+    line: 46,
     code: "else:",
     category: "condition",
     title: "O else final (Caso Geral / Padrão)",
-    explanation: "O 'else' principal é acionado caso NENHUMA das opções anteriores (1, 2, 3 ou 4) tenha sido escolhida. É a rede de segurança para entradas incorretas (ex: se o usuário digitar 'banana' ou '9').",
+    explanation: "O 'else' principal é acionado caso NENHUMA das opções anteriores (1, 2, 3, 4 ou 5) tenha sido escolhida. É a rede de segurança para entradas incorretas (ex: se o usuário digitar 'banana' ou '9').",
     beginnerTip: "O else nunca recebe uma condição ao lado dele; ele simplesmente engloba 'tudo o que sobrou'."
   }
 ];

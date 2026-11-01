@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { GitBranch, Check, HelpCircle, AlertOctagon, ArrowDown, ArrowRight } from 'lucide-react';
 
 export const ConditionalFlowDiagram: React.FC = () => {
-  const [activeBranch, setActiveBranch] = useState<'1' | '2' | '3' | '4-safe' | '4-zero' | 'else'>('1');
+  const [activeBranch, setActiveBranch] = useState<'1' | '2' | '3' | '4-safe' | '4-zero' | '5' | 'else'>('1');
 
   return (
     <section id="fluxo" className="scroll-mt-20">

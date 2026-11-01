@@ -52,7 +52,7 @@ export default function App() {
             </h1>
 
             <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl text-balance mb-8">
-              Guia didático feito especialmente para quem está começando a programar. Aprenda as 4 operações básicas (<code className="text-emerald-400 font-mono">+</code>, <code className="text-emerald-400 font-mono">-</code>, <code className="text-emerald-400 font-mono">*</code>, <code className="text-emerald-400 font-mono">/</code>), como ler dados do usuário com <code className="text-amber-300 font-mono">input()</code> e como tomar decisões com <code className="text-amber-300 font-mono">if / elif / else</code>.
+              Guia didático feito especialmente para quem está começando a programar. Aprenda as 5 operações fundamentais (<code className="text-emerald-400 font-mono">+</code>, <code className="text-emerald-400 font-mono">-</code>, <code className="text-emerald-400 font-mono">*</code>, <code className="text-emerald-400 font-mono">/</code>, <code className="text-emerald-400 font-mono">%</code>), como ler dados do usuário com <code className="text-amber-300 font-mono">input()</code> e como tomar decisões com <code className="text-amber-300 font-mono">if / elif / else</code>.
             </p>
 
             <div className="flex flex-wrap items-center gap-3">
@@ -88,10 +88,10 @@ export default function App() {
             <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800/80">
               <div className="flex items-center gap-2 text-emerald-400 text-xs font-semibold uppercase tracking-wider mb-1">
                 <Cpu className="w-4 h-4" />
-                <span>4 Operações Matemáticas</span>
+                <span>5 Operações Matemáticas</span>
               </div>
               <p className="text-xs text-slate-300 leading-relaxed">
-                Soma (<code className="font-mono text-amber-300">+</code>), Subtração (<code className="font-mono text-amber-300">-</code>), Multiplicação (<code className="font-mono text-amber-300">*</code>) e Divisão (<code className="font-mono text-amber-300">/</code>) com suporte a decimais via <code className="font-mono text-amber-300">float()</code>.
+                Soma (<code className="font-mono text-amber-300">+</code>), Subtração (<code className="font-mono text-amber-300">-</code>), Multiplicação (<code className="font-mono text-amber-300">*</code>), Divisão (<code className="font-mono text-amber-300">/</code>) e Porcentagem (<code className="font-mono text-amber-300">%</code>) com suporte a decimais via <code className="font-mono text-amber-300">float()</code>.
               </p>
             </div>
 
