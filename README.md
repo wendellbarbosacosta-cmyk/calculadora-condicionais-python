@@ -122,4 +122,4 @@ Resultado: 15.5 + 4.5 = 20.0
 Este projeto está sob a licença [MIT](LICENSE) - sinta-se livre para utilizar, modificar e compartilhar para fins de estudo.
 
 ---
-Desenvolvido por **Wendell Barbosa Costa** como parte da minha jornada de aprendizado em programação.
+Desenvolvido por **Wendell Barbosa Costa** como parte da minha jornada de aprendizado em programação e Imersão em Engenharia de Software com I.A - Alura.
